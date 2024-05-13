@@ -1,2 +1,2 @@
 all:
-	gcc main.c
+	gcc print.c  main.c
