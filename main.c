@@ -8,7 +8,7 @@
 int main() {
 	int option,id;
 	char yn;
-	char c,phi;
+	char c,phi,l;
 	int flag=0;
 
 	system("clear");
@@ -30,6 +30,18 @@ menu:	menu();
 			exit(0);
 			break;
 		case 1 :
+			FILE * fptr;
+			fptr= fopen("records.dat", "rb");
+			if(fptr==NULL)
+				printf("No records to be displayed\n");
+			else {
+				while(1) {
+      					l = fgetc(fptr);
+      					if( feof(fptr) ) { break ; }
+      					printf("%c", l);
+   				}
+				fclose(fptr);
+			}
 			break;
 		case 2 :
 			break;
