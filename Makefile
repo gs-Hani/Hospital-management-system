@@ -1,2 +1,2 @@
 all:
-	gcc main.c
+	gcc print.c addPatient.c  main.c
