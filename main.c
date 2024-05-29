@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "print.h"
+#include "addPatient.h"
 
 int main() {
 	int option,id;
@@ -32,6 +33,7 @@ menu:	menu();
 		case 1 :
 			FILE * fptr;
 			fptr= fopen("records.dat", "rb");
+
 			if(fptr==NULL)
 				printf("No records to be displayed\n");
 			else {
@@ -40,10 +42,13 @@ menu:	menu();
       					if( feof(fptr) ) { break ; }
       					printf("%c", l);
    				}
+
 				fclose(fptr);
 			}
+
 			break;
 		case 2 :
+			addPatient();
 			break;
 		case 3 :
 			break;
