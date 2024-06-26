@@ -75,7 +75,33 @@ case2:			fseek(fptr,0,SEEK_SET);
 d:     			break;
 
 		case 3:
-			break;
+			fseek(fptr,0,SEEK_SET);
+            		flag=0
+				;
+            		while((ch=getchar())!='\n' && ch!= EOF)
+				;
+            		printf("\nEnter the name of the doctor : ");
+            		fgets(s,100,stdin);
+            		strlower(s,s)
+				;
+            		while(fread(&pat,sizeof(pat),1,fptr)) {
+                		strlower(pat.doc,c)
+					;
+                		if(strstr(c,s)) {
+                    			fwrite(&pat,sizeof(pat),1,fnew);
+                    			flag=1;
+                		}
+            		}
+
+            		if(flag==0) {
+            			printf("No records found.\n\n");
+            			break;
+            		}
+
+            		fseek(fnew,0,SEEK_SET);
+            		printname_pid(fnew);
+            		goto case2;
+
 		case 4:
 			break;
 		default:
