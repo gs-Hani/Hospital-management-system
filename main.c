@@ -3,8 +3,9 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "print.h"
 #include "addPatient.h"
+#include "print.h"
+#include "search.h"
 
 int main() {
 	int option,id;
@@ -51,6 +52,7 @@ menu:	menu();
 			addPatient();
 			break;
 		case 3 :
+			search(fopen("records.dat","rb"));
 			break;
 		case 4 :
 			break;
