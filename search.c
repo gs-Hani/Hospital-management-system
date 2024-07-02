@@ -103,6 +103,66 @@ d:     			break;
             		goto case2;
 
 		case 4:
+			flag=0;
+			fseek(fptr,0,SEEK_SET)
+				;
+			int status;
+b:			printf("\n Enter the status of the patient that you want to search:\n0:Discharged\n1:OPD\n2:Emergency\n");
+			scanf("%d",&status)
+				;
+			if(status!=0 && status!=1 && status!=2) {
+            			printf("Enter valid option.");
+            			goto b;
+            		}
+
+			while(fread(&pat,sizeof(pat),1,fptr)) {
+				if(pat.stat == status) {
+					name_pid(pat);
+				}
+			}
+
+			if(flag==0) {
+				printf("No records\n");
+			}
+
+			while((ch=getchar())!='\n' && ch!= EOF)
+				;
+			printf("\nFilter applied.\n");
+c:			printf("Search by");
+			printf("\n1)Name");
+			printf("\n2)Doctor consulted\n");
+			printf("Enter choice: ");
+
+			scanf("%d",&inp)
+				;
+			if(inp != 1 && inp != 2) {
+				printf("\nEnter valid option.\n");
+				goto c;
+			}
+
+			switch(inp) {
+				case 1: 
+					flag = 0;
+					 while((ch=getchar())!='\n' && ch!= EOF)
+						;
+					 printf("\nEnter the name of the patient : ");
+					 fgets(s,100,stdin);
+					 strlower(s,s);
+					 strlower(pat.name,c);
+					 fseek(fptr,0,SEEK_SET);
+
+					 while(fread(&pat,sizeof(pat),1,fptr)) {
+					 	strlower(pat.name,c);
+						if((strstr(c,s)) && (pat.stat == status)) {
+							display(pat);
+							flag=1;		
+						}
+					 }
+
+				default:
+					printf("\nPlease enter a vaild option");
+			}
+
 			break;
 		default:
 			printf("\nPlease enter a valid option");
@@ -115,4 +175,12 @@ void strlower(char* p,char* c) {
     	for(int i=0; i<strlen(p); i++) {
         	c[i]=tolower(p[i]);
     	}
+}
+
+void name_pid(struct patient p) {
+	printf("\nName: ");
+	printf("%s",p.name);
+	printf("\nPatient ID: ");
+	printf("%ld\n",p.pid);
+	printf("Doctor's name: %s\n",p.doc);
 }
