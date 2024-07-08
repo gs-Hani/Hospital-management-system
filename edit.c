@@ -52,27 +52,51 @@ void edit() {
 				printf("Enter the updated name:");
 				fgets(ptr.name, 100, stdin);
 				rename(dummy0,ptr.name);
-
 				break;
 			case 2:
+				printf("Enter the updated Age:");
+				scanf("%d",&(ptr.age));
 				break;
 			case 3:
+				printf("Enter the updated Sex:");
+				scanf("%c",&(ptr.sex));
 				break;
 			case 4:
+				printf("Enter the updated Doctor name:");
+				fgets(dummy,100,stdin);
+				//ptr.doc[strlen(ptr.doc)]=';';
+				//strcat(ptr.doc,";");
+				strcat(ptr.doc,dummy);
 				break;
 			case 5:
+				printf("Enter the updated Diagnosis of the Patient:");
+				fgets(dummy1,100,stdin);
+				//strcat(ptr.diag,";");
+				strcat(ptr.diag,dummy1);
 				break;
 			case 6:
+				printf("Enter the updated Height:");
+				scanf("%f",&(ptr.height));
 				break;
 			case 7:
+				printf("Enter the updated Weight:");
+				scanf("%f",&(ptr.weight));
 				break;
 			case 8:
+				printf("Enter the updated BloodGroup of the Patient:");
+				fgets(ptr.bgrp,10,stdin);
 				break;
 			case 9:
+				printf("Updated status of the Patient:");
+				scanf("%d",&(ptr.stat));
 				break;
 			case 10:
+				printf("Enter the updated Bill Amount:");
+				scanf("%lf",&(ptr.bill));
 				break;
 			case 11:
+				printf("Enter the amount deposited by the patient:");
+				scanf("%lf",&(ptr.amtdep));
 				break;
 			default:
 				printf("Invalid choice...Try Again!!!");
@@ -89,4 +113,19 @@ void edit() {
 		printf("Information of the patient has been updated successfully!!");
 	}
 
+	FILE* fnew=fopen("edit.dat","wb");
+	fseek(fptr,0,SEEK_SET);
+
+	while(fread(&pat,sizeof(pat),1,fptr)) {
+		if (pat.pid!=id) {
+			fwrite(&pat,sizeof(pat),1,fnew);
+		} else {
+			fwrite(&ptr,sizeof(ptr),1,fnew);
+		}
+	}
+
+	fclose(fnew);
+	fclose(fptr);
+	remove("records.dat");
+	rename("edit.dat","records.dat");
 }
