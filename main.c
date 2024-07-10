@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "addPatient.h"
+#include "edit.h"
 #include "print.h"
 #include "search.h"
 
@@ -55,6 +56,7 @@ menu:	menu();
 			search(fopen("records.dat","rb"));
 			break;
 		case 4 :
+			edit();
 			break;
 		case 5 :
 			break;
