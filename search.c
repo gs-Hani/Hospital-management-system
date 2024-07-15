@@ -4,10 +4,11 @@
 
 #include "display.h"
 #include "extern.h"
+#include "lowerFunctions.h"
 #include "printname_pid.h"
 
 void name_pid(struct patient p);
-void strlower(char* p,char* c);
+//void strlower(char* p,char* c);
 
 void search(FILE *fptr) {
 	FILE *fnew,fdum;
@@ -171,11 +172,11 @@ c:			printf("Search by");
 	}
 }
 
-void strlower(char* p,char* c) {
-    	for(int i=0; i<strlen(p); i++) {
-        	c[i]=tolower(p[i]);
-    	}
-}
+//void strlower(char* p,char* c) {
+//    	for(int i=0; i<strlen(p); i++) {
+//        	c[i]=tolower(p[i]);
+//    	}
+//}
 
 void name_pid(struct patient p) {
 	printf("\nName: ");
