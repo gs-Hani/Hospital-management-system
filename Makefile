@@ -1,2 +1,2 @@
 all:
-	gcc edit.c addPatient.c display.c main.c print.c printname_pid.c search.c
+	gcc delete.c edit.c addPatient.c display.c lowerFunctions.c main.c print.c printname_pid.c search.c

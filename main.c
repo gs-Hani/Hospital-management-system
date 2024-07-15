@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "addPatient.h"
+#include "delete.h"
 #include "edit.h"
 #include "print.h"
 #include "search.h"
@@ -59,6 +60,7 @@ menu:	menu();
 			edit();
 			break;
 		case 5 :
+			if(delete()==0) { goto menu; }
 			break;
 		case 6 :
 			break;
