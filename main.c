@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "addPatient.h"
+#include "bgrp.h"
 #include "delete.h"
 #include "edit.h"
 #include "print.h"
@@ -63,6 +64,7 @@ menu:	menu();
 			if(delete()==0) { goto menu; }
 			break;
 		case 6 :
+			bloodgroup();
 			break;
 		case 7 :
 			break;
