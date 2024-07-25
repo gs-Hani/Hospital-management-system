@@ -6,6 +6,7 @@
 #include "addPatient.h"
 #include "bgrp.h"
 #include "delete.h"
+#include "diagnosis.h"
 #include "doctor.h"
 #include "edit.h"
 #include "print.h"
@@ -71,6 +72,7 @@ menu:	menu();
 			doctor();
 			break;
 		case 8 :
+			diagnosis();
 			break;
 		case 9 :
 			break;
