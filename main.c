@@ -6,6 +6,7 @@
 #include "addPatient.h"
 #include "bgrp.h"
 #include "delete.h"
+#include "doctor.h"
 #include "edit.h"
 #include "print.h"
 #include "search.h"
@@ -67,6 +68,7 @@ menu:	menu();
 			bloodgroup();
 			break;
 		case 7 :
+			doctor();
 			break;
 		case 8 :
 			break;
