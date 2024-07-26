@@ -40,15 +40,10 @@ menu:	menu();
 			FILE * fptr;
 			fptr= fopen("records.dat", "rb");
 
-			if(fptr==NULL)
+			if(fptr==NULL) {
 				printf("No records to be displayed\n");
-			else {
-				while(1) {
-      					l = fgetc(fptr);
-      					if( feof(fptr) ) { break ; }
-      					printf("%c", l);
-   				}
-
+			} else {
+				print(fptr);
 				fclose(fptr);
 			}
 
