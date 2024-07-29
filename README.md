@@ -19,12 +19,14 @@ p.s : this programe was written to be run on linux, if you are using another OS,
 The programe is text based, therefor you will be asked question which you will answer via typing.
 
 ## Features ##
-1. Display records
-2. Add patients
-3. Search for patients by name, ID, doctor consulted or status.
-4. Editing a patient's record
-5. Deleting a patient's record.
-6. Fetching all patients with similar blood type.
+1. Display patient records
+2. Add patient record
+3. Search a patient's records in the database.
+4. Edit patient records.
+5. Delete patient records.
+6. Display patients of a particular blood group.
+7. Display patients treated by a particular doctor.
+8. Display patients of a particular diagnosis.
 
 ## Credits ##
 n/a

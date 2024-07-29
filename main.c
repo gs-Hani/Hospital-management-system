@@ -6,6 +6,7 @@
 #include "addPatient.h"
 #include "bgrp.h"
 #include "delete.h"
+#include "diagnosis.h"
 #include "doctor.h"
 #include "edit.h"
 #include "print.h"
@@ -39,15 +40,10 @@ menu:	menu();
 			FILE * fptr;
 			fptr= fopen("records.dat", "rb");
 
-			if(fptr==NULL)
+			if(fptr==NULL) {
 				printf("No records to be displayed\n");
-			else {
-				while(1) {
-      					l = fgetc(fptr);
-      					if( feof(fptr) ) { break ; }
-      					printf("%c", l);
-   				}
-
+			} else {
+				print(fptr);
 				fclose(fptr);
 			}
 
@@ -71,6 +67,7 @@ menu:	menu();
 			doctor();
 			break;
 		case 8 :
+			diagnosis();
 			break;
 		case 9 :
 			break;
