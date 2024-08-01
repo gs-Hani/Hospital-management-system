@@ -27,6 +27,7 @@ The programe is text based, therefor you will be asked question which you will a
 6. Display patients of a particular blood group.
 7. Display patients treated by a particular doctor.
 8. Display patients of a particular diagnosis.
+9. Dispaly patients who visited on a particular day.
 
 ## Credits ##
 n/a
