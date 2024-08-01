@@ -9,6 +9,7 @@
 #include "diagnosis.h"
 #include "doctor.h"
 #include "edit.h"
+#include "log.h"
 #include "print.h"
 #include "search.h"
 
@@ -70,6 +71,7 @@ menu:	menu();
 			diagnosis();
 			break;
 		case 9 :
+			openfile();
 			break;
 		default:
 			printf("Enter valid option\n");
